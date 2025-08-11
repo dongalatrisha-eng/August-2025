@@ -1,0 +1,19 @@
+#double linked list 
+class node:
+    def __init__(self,val):
+        self.data = val
+        self.next = None
+def DLL(arr):
+    head = None
+    for val in arr:
+        if (head == None):
+            head = node(val)
+            temp = head
+        else:
+            temp.next = node(val)
+            temp = temp.next
+            temp.data = head.next
+    return head 
+arr = [2,3,4,5]
+print(DLL(arr))
+        
