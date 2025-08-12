@@ -1,0 +1,7 @@
+#outer loop indicates num of rows
+#inner loop indicates num of coloums
+n = int(input())
+for i in range(n):
+    for j in range(n):
+        print("*",end = " ")
+    print()
