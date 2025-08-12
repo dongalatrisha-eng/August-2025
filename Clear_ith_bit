@@ -1,0 +1,8 @@
+#to check k position is set bit to non set bit(1 to 0) if the position is 0 doesn't change
+n = int(input())
+k = int(input())
+if (n&~(1<<k)):
+    print("True")
+else:
+    print("False")
+    
