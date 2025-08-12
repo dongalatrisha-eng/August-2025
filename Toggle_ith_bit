@@ -1,0 +1,8 @@
+#Toggle ith bit 
+# make 1 to 0 
+# make 0 to 1    
+#program
+n = int(input())
+k = int(input())
+n = (n^(1<<k))
+print(n)
