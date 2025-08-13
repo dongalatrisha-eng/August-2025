@@ -1,0 +1,18 @@
+# combinations using back tracking
+class Solution:
+    def generate(self,index,curr_subset,ans,candidates,target):
+        if (target == 0):
+            ans.append(curr_subset.copy())
+            return
+        if(target<0 or index == len(candidates)):
+            return
+        curr_subset.append(candidates[index])
+        self.generate(index,curr_subset,ans,candidates,target-candidates[index])
+        curr_subset.pop()
+        self.generate(index+1,curr_subset,ans,candidates,target)
+    def combinationSum(self, candidates, target):
+        curr_subset = []
+        ans = []
+        index = 0
+        self.generate(index, curr_subset, ans, candidates, target)
+        return ans
