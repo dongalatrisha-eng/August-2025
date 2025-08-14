@@ -1,0 +1,13 @@
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        ind=0
+        count=0
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[ind]=nums[i]
+                count+=1
+                ind+=1
+        return count
+        for i in range(ind,nums):
+            nums[i]=_
+            
