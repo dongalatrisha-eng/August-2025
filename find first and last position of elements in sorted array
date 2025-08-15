@@ -1,0 +1,26 @@
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if not nums: return [-1, -1]
+
+        def lowerbound(mid, target):
+            return target <= mid
+        def upperbound(mid, target):
+            return target < mid
+
+        lo = self.binarySearch(nums, target, lowerbound)
+        up = self.binarySearch(nums, target, upperbound)
+        if lo == len(nums) or (lo < len(nums) and nums[lo] != target):
+            return [-1, -1]
+
+        return [lo, up if up == 0 else up - 1]
+
+    def binarySearch(self, nums, target, condition):
+        lo, hi = 0, len(nums)
+        while lo < hi:
+            mid = lo + (hi - lo) // 2
+
+            if condition(nums[mid], target):
+                hi = mid
+            else:
+                lo = mid + 1
+        return lo
