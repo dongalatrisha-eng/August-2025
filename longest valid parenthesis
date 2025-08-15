@@ -1,0 +1,18 @@
+class Solution:
+    def longestValidParentheses(self, s: str) -> int:
+        count, maximum, stack = 0, 0, []
+
+        for paren in s:
+            if paren == ')':
+                if not stack or stack[-1][0] != '(':
+                    count = 0
+                    stack.clear()
+                else:
+                    _, stack_count = stack.pop()
+                    count += 2 + stack_count
+                    maximum = max(maximum, count)
+            else:
+                stack.append((paren, count))
+                count = 0
+        
+        return maximum
